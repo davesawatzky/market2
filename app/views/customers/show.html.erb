@@ -1,0 +1,50 @@
+<div class="max-w-[600px] mx-auto px-5" >
+  <h1>New Customer</h1>
+
+  <%= form_with model: @customer do |form| %>
+    <div>
+      <%= form.label :first_name, 'First Name' %><br>
+      <%= form.text_field :first_name %>
+    </div>
+    <div>
+      <%= form.label :last_name, 'Last Name' %><br>
+      <%= form.text_field :last_name %>
+    </div>
+    <div>
+      <%= form.label :apartment, 'Apartment' %><br>
+      <%= form.text_field :apartment %>
+    </div>
+    <div>
+      <%= form.label :street_number, 'Street Number' %><br>
+      <%= form.text_field :street_number %>
+    </div>
+    <div>
+      <%= form.label :street_name, 'Street Name' %><br>
+      <%= form.text_field :street_name %>
+    </div>
+    <div>
+      <%= form.label :city, 'City' %><br>
+      <%= form.text_field :city %>
+    </div>
+    <div>
+      <%= form.label :postal_code, 'Postal Code' %><br>
+      <%= form.text_field :postal_code %>
+    </div>
+    <div>
+      <%= form.label :province, 'Province' %><br>
+      <%= form.collection_select :province_id, Province.order(:name), :id, :name %>
+    </div>
+    <div>
+      <%= form.label :phone, 'Phone' %><br>
+      <%= form.telephone_field :phone %>
+    </div>
+    <div>
+      <%= form.label :email, 'Email' %><br>
+      <%= form.email_field :email %>
+    </div>
+
+    <div class="btn btn-gray">
+      <%= form.submit 'Submit' %>
+    </div>
+  <% end %>
+</div>

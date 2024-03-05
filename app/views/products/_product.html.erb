@@ -1,0 +1,29 @@
+<div class="grid md:grid-rows-2 md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
+    <% @products.each do |product| %>
+    <div class="border border-stone-700 p-5 rounded-xl min-w-[150px] max-w-[300px] m-4">
+        <h4 class="font-semibold mt-2"><%=product[:brand] %></h4>
+        <h3 class="font-semibold"><%= link_to product[:name], product %></h3>
+        <img src="<%= product[:image_url] %>" alt="<%= product[:name] %>">
+        <div>$<%= product[:price] %></div>
+        <div class="text-red-700"><%= product[:on_sale] ? 'On Sale' : '' %></div>
+        <div>In Stock: <%= product[:inventory] %></div>
+        <div>SKU: <%= product[:SKU] %></div>
+        <div>Category: <%= link_to product.category[:name], product.category %></div>
+        <p><%= product[:floor_date] %></p>
+        <div class="btn btn-blue my-4">
+            <% if @cart.include?(product) %>
+                <%= form_with(url: remove_from_cart_path) do |f| %>
+                    <%= f.hidden_field :id, value: product['id'] %>
+                    <%= f.submit "Remove From Cart" %>
+                <% end %>
+            <% else %>
+                <%= form_with(url: add_to_cart_path) do |f| %>
+                    <%= f.hidden_field :id, value: product['id'] %>
+                    <%= f.hidden_field :quantity, value: 1 %>
+                    <%= f.submit "Add To Cart" %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+</div>

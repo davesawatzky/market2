@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_submitted: MyString
+  date_delivered: MyString
+  subtotal: 1.5
+  shippingCost: 1.5
+  totalGST: 1.5
+  totalPST: 1.5
+  totalCost: 1.5
+  paid: false
+  transactionNumber: MyString
+  delivered: false
+
+two:
+  date_submitted: MyString
+  date_delivered: MyString
+  subtotal: 1.5
+  shippingCost: 1.5
+  totalGST: 1.5
+  totalPST: 1.5
+  totalCost: 1.5
+  paid: false
+  transactionNumber: MyString
+  delivered: false

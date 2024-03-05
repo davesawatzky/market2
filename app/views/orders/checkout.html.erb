@@ -1,0 +1,45 @@
+
+<h1>Check out</h1>
+<div class="flex w-[350px] gap-4">
+    <div class="btn btn-gray p-2"> <%= button_to 'Purchase Order', create_orders_path %></div>
+    <div class="btn btn-gray p-2"> <%= link_to 'Print', 'orders/checkout', :onclick => 'window.print();return false;'%></div>
+</div>
+<% @products.each do |product| %>
+<div class="border border-stone-600 rounded-lg p-4 my-2">
+<h2><%= product[:name] %></h2>
+<h3><%= product[:brand] %></h3>
+    <div class="grid grid-cols-3 items-end">
+        <div class="col-1">
+            <img src="<%= product[:image_url] %>" alt="<%= product[:name] %>">
+        </div>
+        <div class="col-2">
+            <p class="text-red-700"><%= product[:on_sale] ? 'On Sale' : '' %></p>
+            <p class="">SKU: <%= product[:SKU] %></p>
+            <p class="">Category<%= product.category[:name] %></p>
+            <% cost = @product_totals.find{|item| item[:id] == product[:id]} %>
+            <p class="">Quantity: <%= cost[:quantity] %></p>
+            <p class="">Price: $<%= product[:price] %></p>
+        </div>
+        <div class="col-3 text-right">
+
+            <p class="">Subtotal: $<%= cost[:subtotal] %></p>
+            <p class="font-semibold">HST: $<%= cost[:HST] %></p>
+            <p class="font-semibold">PST: $<%= cost[:PST] %></p>
+            <p class="font-semibold">GST: $<%= cost[:GST] %></p>
+            <p class="font-bold text-lg">Total: $<%= cost[:total] %></p>
+        </div>
+    </div>
+</div>
+<% end %>
+
+
+<div class="grid grid-col-3 mt-10 pb-10">
+    <div class="col-3 text-right pr-4">
+        <p>SubTotal: $<%= @order_totals[:subtotal] %> </p>
+        <p class="font-semibold">Total PST: $<%= @order_totals[:total_PST] %> </p>
+        <p class="font-semibold">Total GST: $<%= @order_totals[:total_GST] %> </p>
+        <p class="font-semibold">Total HST: $<%= @order_totals[:total_HST] %> </p>
+        <p class="font-semibold">Shipping Cost: $<%= @order_totals[:shipping_cost] %></p>
+        <p class="font-bold pt-2 text-lg">Total: $<%= @order_totals[:total_cost] %> </p>
+    </div>
+</div>

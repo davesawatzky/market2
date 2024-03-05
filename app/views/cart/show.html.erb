@@ -1,0 +1,10 @@
+<h1>Shopping Cart</h1>
+<div>
+    <% if customer_signed_in? %>
+    <%= button_to 'Checkout', checkout_path %>
+    <% else %>
+    <%= button_to 'Sign-In for Checkout', new_customer_session_path %>
+    <% end %>
+</div>
+
+<div><%= render 'cart_products' %></div>

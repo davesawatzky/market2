@@ -1,0 +1,18 @@
+<details>
+    <summary class="text-lg">Shopping Cart</summary>
+    <% if @cart.empty? %>
+        <h3>No items in cart.</h3>
+    <% else %>
+        <ul>
+            <% @cart.each do |product| %>
+                <li>
+                    <div class="text-xs"><%= product[:name] %></div>
+                    <%= form_with(url: remove_from_cart_path) do |f| %>
+                        <%= f.hidden_field :id, value: product['id'] %>
+                        <div class="btn-gray w-30 text-xs"><%= f.submit "Remove From Cart" %></div>
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+</details>

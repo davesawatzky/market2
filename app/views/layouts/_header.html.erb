@@ -1,0 +1,29 @@
+<nav class="fixed w-full h-[80px] py-1 px-5 top-0 bg-green-600 shadow ">
+<div class="max-w-[1280px] md:flex md:items-center md:justify-between mx-auto">
+    <div class="flex justify-between items-center">
+        <span class="cursor-pointer">
+            <%= link_to image_tag("gramps_market_2.png"), root_path%>
+
+        </span>
+        <span class="text-3xl cursor-pointer mx-2 md:hidden block">
+            <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+        </span>
+    </div>
+
+    <ul class="md:flex md:items-center z-[+1] md:z-auto md:static absolute bg-green-600 w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 transition-all ease-in duration-500">
+        <li class="text-xl hover:text-green-300 mx-4 my-6 md:my-0"><%= link_to "Home", root_path %></li>
+        <li class="text-xl hover:text-green-300 mx-4 my-6 md:my-0"><%= link_to "About", about_path %></li>
+        <li class="text-xl hover:text-green-300 mx-4 my-6 md:my-0"><%= link_to "Sale Items", on_sale_path %></li>
+        <li class="text-xl hover:text-green-300 mx-4 my-6 md:my-0"><%= link_to "Updates", recent_updates_path %></li>
+        <li class="text-xl hover:text-green-300 mx-4 my-6 md:my-0"><%= link_to "Shopping Cart", '/cart' %></li>
+
+    <ul>
+
+    <script>
+        function Menu(e) {
+            let list = document.querySelector('ul');
+            e.name === 'menu' ? (e.name = 'close', list.classList.add('top-[75px]'), list.classList.add('opacity-100')) : (e.name = 'menu', list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
+        }
+    </script>
+</div>
+</nav>

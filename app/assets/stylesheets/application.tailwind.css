@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+
+.btn,
+input[type='submit'] {
+	@apply rounded-lg h-10 w-40 text-center align-middle;
+}
+.btn-gray {
+	@apply bg-stone-500 text-white hover:bg-stone-400 hover:ring-stone-600 active:bg-stone-300 print:hidden my-3 justify-center;
+}
+.btn-blue {
+	@apply bg-sky-700 text-white hover:bg-sky-500 hover:ring-sky-400 active:bg-sky-400 print:hidden;
+}
+.btn-red {
+	@apply bg-rose-800 text-white hover:bg-red-700 hover:ring-rose-400 active:bg-red-600 print:hidden;
+}
+
+@tailwind utilities;
+
+@layer base {
+	h6 {
+		@apply text-base print:text-base;
+	}
+	h5 {
+		@apply text-lg print:text-lg;
+	}
+	h4 {
+		@apply text-xl print:text-xl;
+	}
+	h3 {
+		@apply text-2xl print:text-2xl;
+	}
+	h2 {
+		@apply text-3xl print:text-3xl;
+	}
+	h1 {
+		@apply text-4xl print:text-4xl;
+	}
+	p {
+		@apply text-sm print:text-sm;
+	}
+	div {
+		@apply print:text-sm;
+	}
+
+	input[type='text'],
+	input[type='email'],
+	input[type='url'],
+	input[type='password'],
+	input[type='number'],
+	input[type='date'],
+	input[type='datetime-local'],
+	input[type='month'],
+	input[type='search'],
+	input[type='tel'],
+	input[type='time'],
+	input[type='week'],
+	select[multiple],
+	textarea,
+	select {
+		@apply p-1 rounded w-full border-gray-400 border focus:border-sky-500 focus:ring-sky-500 print:text-sm;
+	}
+
+	input[type='select'] {
+	}
+
+	input[type='checkbox'],
+	input[type='radio'] {
+		@apply border-gray-400 text-sky-600 focus:ring-sky-500 shadow-md rounded;
+	}
+
+	.off {
+		@apply disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-400 disabled:shadow-md;
+	}
+
+	label {
+		@apply font-bold text-gray-500 text-sm leading-3 print:text-xs;
+	}
+	.errorMessage {
+		@apply border-none h-5 text-xs;
+	}
+
+	.section-min-height {
+		min-height: calc(100vh - 88px - 204px);
+	}
+
+	.toggle-btn {
+		@apply [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div]:bg-transparent [&>div]:rotate-[720deg];
+	}
+}

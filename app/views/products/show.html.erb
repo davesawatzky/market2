@@ -1,0 +1,20 @@
+
+
+<div><%= render partial: 'cart/cart_details' %></div>
+
+<div>
+    <h2><%= @product[:name] %></h2>
+    <h3><%= @product[:brand] %></h3>
+    <img src="<%= @product[:image_url] %>" alt="<%= @product[:name] %>">
+    <p>$<%= @product[:price] %></p>
+    <p><%= @product[:on_sale] %></p>
+    <p><%= @product[:inventory] %></p>
+    <p><%= @product[:SKU] %></p>
+    <p><%= link_to @product.category[:name], @product.category %></p>
+    <p><%= @product[:floor_date] %></p>
+    <% if @cart.include?(@product) %>
+        <p><%= button_to 'remove from cart', remove_from_cart_path(@product['id']), method: :delete %></p>
+    <% else %>
+        <p><%= button_to 'add to cart', add_to_cart_path(@product['id']) %></p>
+    <% end %>
+ </div>

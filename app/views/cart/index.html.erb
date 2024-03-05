@@ -1,0 +1,14 @@
+<div class="min-h-screen">
+
+<h1>Shopping Cart</h1>
+<div>
+    <% if customer_signed_in? %>
+    <div class="btn btn-gray p-2"><%= link_to 'Checkout', checkout_path %></div>
+    <% else %>
+    <div class="btn btn-gray p-2"><%= link_to 'Sign-In', new_customer_session_path %></div>
+    <% end %>
+</div>
+
+<div><%= render 'cart_products' %></div>
+
+</div>

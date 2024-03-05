@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Market</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  </head>
+  <body class="bg-green-900">
+    <header class="text-white print:hidden">
+      <%= render partial: 'layouts/header'%>
+    </header>
+
+    <main class="max-w-[1280px] mx-auto mt-28 bg-white">
+      <aside class="md:visible invisible print:hidden">
+        <%= render partial: 'layouts/sidebar'%>
+      </aside>
+      <div class="md:ml-[220px] ml-[20px] mr-6 bg-white">
+        <%= render 'layouts/alerts' %>
+      </div>
+      <section class="md:ml-[220px] ml-[20px] mt-[-35px] mr-6 pt-10 px-4">
+        <%= yield %>
+      </section>
+      <footer class="md:ml-[200px]">
+        <%= render "layouts/footer" %>
+      </footer>
+    </main>
+
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

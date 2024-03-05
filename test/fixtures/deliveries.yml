@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  driver: MyString
+  truck_number: MyString
+  delivery_date: MyString
+  notes: MyText
+
+two:
+  driver: MyString
+  truck_number: MyString
+  delivery_date: MyString
+  notes: MyText
