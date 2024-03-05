@@ -19,10 +19,10 @@ require "openssl"
 require "json"
 require "date"
 
-TOKEN_API = "api-ce.kroger.com/v1/connect/oauth2/token".freeze
-CLIENT_ID = "grampsmarket-b1b6dd2ff88a5c7a0b5b88ee2d40ac9a6171680135351100340".freeze
-CLIENT_SECRET = "x0wOaFLyzCxA0bDt9gyoxunjhKKqhTZ6msEUDmN1".freeze
-PRODUCT_API = "api-ce.kroger.com/v1/products".freeze
+TOKEN_API = ENV.fetch["TOKEN_API"]
+CLIENT_ID = ENV.fetch["CLIENT_ID"]
+CLIENT_SECRET = ENV.fetch["CLIENT_SECRET"]
+PRODUCT_API = ENV.fetch["PRODUCT_API"]
 
 def find_token
   token_url = URI.parse("https://#{TOKEN_API}")
@@ -30,8 +30,7 @@ def find_token
   http.use_ssl = true
   request = Net::HTTP::Post.new(token_url)
   request["Content_Type"] = "application/x-www-form-urlencoded"
-  request["Authorization"] =
-    "Basic Z3JhbXBzbWFya2V0LWIxYjZkZDJmZjg4YTVjN2EwYjViODhlZTJkNDBhYzlhNjE3MTY4MDEzNTM1MTEwMDM0MDp4MHdPYUZMeXpDeEEwYkR0OWd5b3h1bmpoS0txaFRaNm1zRVVEbU4x"
+  request["Authorization"] = ENV.fetch["AUTH_KEY"]
   request.body = "grant_type=client_credentials&scope=product.compact"
   response = http.request(request)
   JSON.parse(response.read_body)
