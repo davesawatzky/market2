@@ -37,4 +37,11 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+RRC*
+ecommerce.docx
+E-commerce.pub
+e-commerc.png
+e-commerce.drawio
+WEBD*
+
 /node_modules
