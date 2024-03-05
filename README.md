@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample e-commerce application I created with Ruby on Rails.  It was just an exercise for me
+to get used to the framework.  It was written to retrieve product information from Kroger foods, although
+if you would like to run this, you will need your own api keys.  It's easy enough to sign up for one through 
+https://developer.kroger.com
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy.
