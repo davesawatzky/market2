@@ -36,13 +36,14 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
-app/config/local_env.yml
 
-RRC*
-ecommerce.docx
-E-commerce.pub
-e-commerc.png
-e-commerce.drawio
-WEBD*
+/config/local_env.yml
+
+
+*.docx
+*.pub
+*.png
+*.drawio
+WEBD*.*
 
 /node_modules
